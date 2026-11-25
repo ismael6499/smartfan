@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="wear_bg">#000000</color>
+    <color name="wear_surface">#161E26</color>
+    <color name="wear_accent">#10C3A6</color>
+    <color name="wear_amber">#F59E0B</color>
+    <color name="wear_danger">#DC2626</color>
+    <color name="wear_text">#F8FAFC</color>
+    <color name="wear_sub">#94A3B8</color>
+</resources>

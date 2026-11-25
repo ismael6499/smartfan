@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.SwipeDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wearSwipeRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wear_bg">
+
+    <ScrollView
+        android:id="@+id/wearMainScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="36dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SCREEN MAIN -->
+            <LinearLayout
+                android:id="@+id/wearScreenMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWearDeviceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/wear_accent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWearSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/wear_fan_off"
+                    android:textColor="@color/wear_sub"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearFanToggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="@string/wear_fan_off"
+                    android:textAllCaps="false"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnWearSpeedDown"
+                        android:layout_width="48dp"
+                        android:layout_height="40dp"
+                        android:text="@string/wear_spd_down"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tvWearSpeed"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/wear_spd_fmt"
+                        android:textColor="@color/wear_text"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnWearSpeedUp"
+                        android:layout_width="48dp"
+                        android:layout_height="40dp"
+                        android:text="@string/wear_spd_up"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnWearLightToggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/wear_light_off"
+                    android:textAllCaps="false"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btnWearAllOff"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="@color/wear_danger"
+                    android:text="@string/wear_all_off"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_text"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btnWearNavLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/wear_surface"
+                    android:text="@string/wear_nav_light"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_text"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearNavModes"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:backgroundTint="@color/wear_surface"
+                    android:text="@string/wear_nav_modes"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_text"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearNavDevices"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:backgroundTint="@color/wear_surface"
+                    android:text="@string/wear_nav_devices"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- SCREEN LIGHT -->
+            <LinearLayout
+                android:id="@+id/wearScreenLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/wear_light_title"
+                    android:textColor="@color/wear_amber"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnWearLightY"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="@string/wear_preset_y"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearLightN"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_preset_n"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearLightW"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_preset_w"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearLightNight"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_preset_night"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnWearBrDown"
+                        android:layout_width="46dp"
+                        android:layout_height="38dp"
+                        android:text="@string/wear_spd_down" />
+
+                    <TextView
+                        android:id="@+id/tvWearBrightness"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/wear_br_fmt"
+                        android:textColor="@color/wear_text"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btnWearBrUp"
+                        android:layout_width="46dp"
+                        android:layout_height="38dp"
+                        android:text="@string/wear_spd_up" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnWearBackFromLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/wear_surface"
+                    android:text="@string/wear_back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_sub"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- SCREEN MODES & TIMER -->
+            <LinearLayout
+                android:id="@+id/wearScreenModes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/wear_modes_title"
+                    android:textColor="@color/wear_accent"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnWearModeNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="@string/wear_mode_normal"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearModeNatural"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_mode_natural"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearModeSleeping"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_mode_sleeping"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearModeReversal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_mode_reversal"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearTimer1h"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/wear_timer_1h"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearTimer2h"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_timer_2h"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearTimerOff"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/wear_timer_off"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnWearBackFromModes"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/wear_surface"
+                    android:text="@string/wear_back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_sub"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- SCREEN DEVICES -->
+            <LinearLayout
+                android:id="@+id/wearScreenDevices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/wear_devices_title"
+                    android:textColor="@color/wear_accent"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/llWearDevicesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <Button
+                    android:id="@+id/btnWearBackFromDevices"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/wear_surface"
+                    android:text="@string/wear_back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wear_sub"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.wear.widget.SwipeDismissFrameLayout>

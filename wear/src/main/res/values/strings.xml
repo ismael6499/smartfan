@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartFan</string>
+    <string name="tile_label">SmartFan</string>
+    <string name="tile_header_on">%1$s • Spd %2$d</string>
+    <string name="tile_header_off">%1$s • OFF</string>
+    <string name="tile_fan_on">Fan ON</string>
+    <string name="tile_fan_off">Fan OFF</string>
+    <string name="tile_light_on">Light ON</string>
+    <string name="tile_light_off">Light OFF</string>
+    <string name="tile_speed_btn">Spd %1$d +</string>
+    <string name="tile_all_off">All OFF</string>
+    <string name="tile_open_app">Open</string>
+
+    <string name="wear_status_fmt">Fan %1$s • Light %2$s</string>
+    <string name="wear_fan_on">Fan ON</string>
+    <string name="wear_fan_off">Fan OFF</string>
+    <string name="wear_spd_fmt">Speed %1$d</string>
+    <string name="wear_spd_down">-</string>
+    <string name="wear_spd_up">+</string>
+    <string name="wear_light_on">Light ON</string>
+    <string name="wear_light_off">Light OFF</string>
+    <string name="wear_all_off">All OFF</string>
+    <string name="wear_nav_light">Light &amp; CT</string>
+    <string name="wear_nav_modes">Modes &amp; Timer</string>
+    <string name="wear_nav_devices">Devices</string>
+    <string name="wear_back">Back</string>
+    <string name="wear_light_title">Light &amp; Brightness</string>
+    <string name="wear_preset_y">Warm Y</string>
+    <string name="wear_preset_n">Neutral N</string>
+    <string name="wear_preset_w">Cool W</string>
+    <string name="wear_preset_night">Night</string>
+    <string name="wear_br_fmt">Brightness %1$d%%</string>
+    <string name="wear_modes_title">Modes &amp; Timer</string>
+    <string name="wear_mode_normal">Normal</string>
+    <string name="wear_mode_natural">Natural</string>
+    <string name="wear_mode_sleeping">Sleeping</string>
+    <string name="wear_mode_reversal">Reversal</string>
+    <string name="wear_timer_1h">Timer 1h</string>
+    <string name="wear_timer_2h">Timer 2h</string>
+    <string name="wear_timer_off">Timer Off</string>
+    <string name="wear_devices_title">Switch Device</string>
+    <string name="wear_no_devices">Open SmartFan on phone to sync</string>
+    <string name="wear_state_on">ON</string>
+    <string name="wear_state_off">OFF</string>
+</resources>

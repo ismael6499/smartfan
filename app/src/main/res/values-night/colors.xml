@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sf_bg">#0D1217</color>
+    <color name="sf_surface">#161E26</color>
+    <color name="sf_surface_alt">#1F2935</color>
+    <color name="sf_stroke">#2A3746</color>
+    <color name="sf_text_primary">#F1F5F9</color>
+    <color name="sf_text_secondary">#94A3B8</color>
+    <color name="sf_accent">#10C3A6</color>
+    <color name="sf_accent_soft">#123C38</color>
+    <color name="sf_on_accent">#06201C</color>
+    <color name="sf_danger">#F87171</color>
+    <color name="sf_danger_soft">#3B1C20</color>
+    <color name="sf_amber">#FBBF24</color>
+    <color name="sf_amber_soft">#3B2E12</color>
+    <color name="sf_fan_blade_off">#334155</color>
+    <color name="sf_fan_blade_on">#38BDF8</color>
+    <color name="sf_widget_bg">#121920</color>
+    <color name="sf_widget_btn">#1F2B37</color>
+    <color name="sf_widget_text">#F1F5F9</color>
+    <color name="sf_widget_sub">#94A3B8</color>
+</resources>

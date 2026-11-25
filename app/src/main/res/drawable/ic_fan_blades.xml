@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="128dp"
+    android:height="128dp"
+    android:viewportWidth="128"
+    android:viewportHeight="128">
+    <!-- 7 smooth fan blades around center hub -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,52 C56,28 65,12 78,16 C88,19 88,36 74,50 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M74,55 C94,40 112,46 112,59 C112,70 96,74 78,64 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M75,67 C98,74 108,90 99,101 C91,110 76,101 69,80 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M66,76 C73,100 64,116 51,112 C41,109 41,92 55,78 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,73 C34,88 16,82 16,69 C16,58 32,54 50,64 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M53,61 C30,54 20,38 29,27 C37,18 52,27 59,48 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.35"
+        android:pathData="M64,46 A18,18 0 1,1 63.99,46 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,51 A13,13 0 1,1 63.99,51 Z" />
+</vector>

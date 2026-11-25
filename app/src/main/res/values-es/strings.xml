@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartFan</string>
+    <string name="default_device_name">Ventilador</string>
+    <string name="default_device_location">Dormitorio</string>
+
+    <!-- Navigation & Top Bar -->
+    <string name="cd_back">Volver</string>
+    <string name="cd_devices">Dispositivos</string>
+    <string name="cd_shortcuts">Accesos directos</string>
+    <string name="cd_settings">Ajustes</string>
+    <string name="cd_fan_graphic">Gráfico del ventilador</string>
+    <string name="cd_pair_help">Ayuda de emparejamiento</string>
+    <string name="title_devices">Dispositivos</string>
+    <string name="title_settings">Ajustes</string>
+    <string name="title_shortcuts">Accesos en inicio</string>
+    <string name="title_rgb">Luz RGB</string>
+
+    <!-- BLE Banner & Status -->
+    <string name="ble_warning_bt_off">El Bluetooth está apagado. Encendelo para controlar tu ventilador.</string>
+    <string name="ble_warning_permission">Se requiere permiso de Bluetooth (Advertise) para enviar comandos.</string>
+    <string name="ble_warning_action">Activar</string>
+    <string name="err_bluetooth_off">Encendé el Bluetooth primero</string>
+    <string name="err_permission_denied">Permiso de Bluetooth denegado</string>
+    <string name="err_advertise_failed">Falló la emisión BLE</string>
+
+    <!-- Hero & Pairing -->
+    <string name="pair">Pair</string>
+    <string name="unpair">Unpair</string>
+    <string name="master_off">Todo OFF</string>
+    <string name="aux_light">Aux</string>
+    <string name="help_title">Emparejar y Desemparejar</string>
+    <string name="help_pair_title">Cómo emparejar</string>
+    <string name="help_pair_desc">Cortá la corriente del ventilador, volvé a encenderlo y tocá [Pair] dentro de los primeros 5 segundos. La luz parpadea una vez al emparejar.</string>
+    <string name="help_unpair_title">Cómo desemparejar</string>
+    <string name="help_unpair_desc">Cortá la corriente del ventilador, volvé a encenderlo y tocá [Unpair] dentro de los primeros 5 segundos. La luz parpadea 3 veces al desvincular.</string>
+    <string name="hero_status_fmt">Ventilador %1$s • Luz %2$s</string>
+    <string name="hero_fan_on_spd">Vel %1$d</string>
+    <string name="hero_state_on">ON</string>
+    <string name="hero_state_off">OFF</string>
+
+    <!-- Fan Card -->
+    <string name="section_fan">Ventilador</string>
+    <string name="btn_on">ON</string>
+    <string name="btn_off">OFF</string>
+    <string name="label_speed">Velocidad</string>
+    <string name="speed_down">-</string>
+    <string name="speed_up">+</string>
+    <string name="mode_shake">Oscilar</string>
+    <string name="mode_reversal">Reversa</string>
+    <string name="mode_normal">Normal</string>
+    <string name="mode_natural">Natural</string>
+    <string name="mode_sleeping">Sueño</string>
+    <string name="label_timer">Temporizador</string>
+    <string name="timer_off">Apagado</string>
+    <string name="timer_dialog_title">Temporizador de apagado</string>
+    <string name="timer_custom">Personalizado HH:MM</string>
+    <string name="timer_30m">30 min</string>
+    <string name="timer_1h">1 hora</string>
+    <string name="timer_2h">2 horas</string>
+    <string name="timer_4h">4 horas</string>
+    <string name="timer_8h">8 horas</string>
+    <string name="timer_minutes_unit">%1$d min</string>
+
+    <!-- Light Card -->
+    <string name="section_light">Luz</string>
+    <string name="label_ct">Temperatura (Cálida - Fría)</string>
+    <string name="preset_yellow">Y</string>
+    <string name="preset_neutral">N</string>
+    <string name="preset_white">W</string>
+    <string name="preset_night">Noche</string>
+    <string name="label_brightness">Brillo</string>
+    <string name="section_rgb">RGB y Efectos</string>
+    <string name="rgb_auto_color">Color auto</string>
+    <string name="rgb_meteor">Meteoro</string>
+    <string name="rgb_aux_light">Luz auxiliar</string>
+    <string name="rgb_open_hint">Rueda de color y efectos</string>
+    <string name="rgb_hex_label">Color #%1$s</string>
+
+    <!-- Devices Screen -->
+    <string name="devices_add">Agregar dispositivo</string>
+    <string name="device_type_fanlight">Ventilador con luz</string>
+    <string name="device_type_light">Iluminación inteligente</string>
+    <string name="device_active_badge">ACTIVO</string>
+    <string name="device_edit">Editar</string>
+    <string name="device_delete">Eliminar</string>
+    <string name="device_delete_confirm">¿Eliminar dispositivo \"%1$s\"?</string>
+    <string name="device_name_hint">Nombre del dispositivo</string>
+    <string name="device_location_hint">Ubicación (ej. Dormitorio)</string>
+    <string name="device_addr_hint">Beacon ID (8 hex, opcional)</string>
+    <string name="device_id_label">ID: %1$s</string>
+    <string name="device_type_label">Tipo</string>
+
+    <!-- Shortcuts Screen -->
+    <string name="shortcuts_hint">Tocá cualquier acción para fijar un botón 1x1 en tu pantalla de inicio para el dispositivo activo.</string>
+    <string name="shortcut_open_app_opt">Abrir la app al ejecutar</string>
+    <string name="shortcut_pin_action">Fijar</string>
+    <string name="shortcut_pin_requested">Acceso directo enviado al launcher</string>
+    <string name="shortcut_not_supported">El launcher no soporta accesos fijados</string>
+    <string name="sc_fan_toggle">Alternar Ventilador</string>
+    <string name="sc_light_toggle">Alternar Luz</string>
+    <string name="sc_all_off">Apagar Todo</string>
+    <string name="sc_night_light">Luz Nocturna</string>
+    <string name="sc_speed_1">Velocidad 1</string>
+    <string name="sc_speed_2">Velocidad 2</string>
+    <string name="sc_speed_3">Velocidad 3</string>
+    <string name="sc_speed_4">Velocidad 4</string>
+    <string name="sc_speed_5">Velocidad 5</string>
+    <string name="sc_speed_6">Velocidad 6</string>
+    <string name="sc_mode_normal">Modo Normal</string>
+    <string name="sc_mode_natural">Modo Natural</string>
+    <string name="sc_mode_sleeping">Modo Sueño</string>
+    <string name="sc_timer_1h">Timer 1h</string>
+    <string name="sc_timer_2h">Timer 2h</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_device_section">Dispositivo activo</string>
+    <string name="settings_beacon_id_label">Beacon ID (advAddr, 8 hex)</string>
+    <string name="settings_beacon_id_help">Compatible con IntelliBeacon para migrar o clonar un ventilador emparejado sin cortar la luz.</string>
+    <string name="settings_save_device">Guardar dispositivo</string>
+    <string name="settings_copy_id">Copiar ID</string>
+    <string name="settings_id_copied">Beacon ID copiado</string>
+    <string name="settings_invalid_id">El Beacon ID debe tener 8 caracteres hexadecimales (0-9, a-f)</string>
+    <string name="settings_device_saved">Dispositivo actualizado</string>
+    <string name="settings_visibility_section">Controles visibles</string>
+    <string name="vis_reversal">Mostrar Reversa</string>
+    <string name="vis_timer">Mostrar Timer</string>
+    <string name="vis_shake">Mostrar Oscilar</string>
+    <string name="vis_rgb">Mostrar RGB</string>
+    <string name="vis_aux">Mostrar Luz Aux</string>
+    <string name="settings_app_section">Preferencias de la app</string>
+    <string name="theme_label">Tema</string>
+    <string name="theme_dark">Oscuro</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_system">Sistema</string>
+    <string name="ble_duration_label">Duración de ráfaga BLE</string>
+    <string name="ble_dur_600">600 ms (Rápida)</string>
+    <string name="ble_dur_900">900 ms (Equilibrada)</string>
+    <string name="ble_dur_1200">1200 ms (Fuerte)</string>
+    <string name="settings_data_section">Backup y API de automatización</string>
+    <string name="btn_export_backup">Exportar Backup JSON</string>
+    <string name="btn_import_backup">Importar Backup JSON</string>
+    <string name="btn_api_docs">Docs de Intents y API</string>
+    <string name="backup_copied">Backup JSON copiado al portapapeles</string>
+    <string name="backup_import_hint">Pegá aquí el JSON exportado</string>
+    <string name="backup_import_ok">Backup restaurado</string>
+    <string name="backup_import_fail">JSON de backup inválido</string>
+    <string name="api_docs_body">Acción: com.nitsutech.smartfan.ACTION_COMMAND\nBroadcast de estado: com.nitsutech.smartfan.ACTION_STATE_CHANGED\n\nExtras:\n• action: fan_toggle | fan_on | fan_off | fan_speed | fan_speed_up | fan_speed_down | fan_mode | fan_shake | fan_reversal | fan_timer | light_toggle | light_on | light_off | light_ct | light_brightness | light_preset | night_light | aux_light | rgb | auto_color | meteor | all_off | select_device | get_state\n• value: ej. \"4\", \"90\", \"night\", \"ff00aa\"\n• device: ID o nombre opcional\n\nPrueba ADB:\nadb shell am broadcast -a com.nitsutech.smartfan.ACTION_COMMAND -n com.nitsutech.smartfan/.receiver.SmartFanCommandReceiver --es action fan_toggle</string>
+    <string name="btn_copy">Copiar</string>
+    <string name="copied_to_clipboard">Copiado al portapapeles</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="close">Cerrar</string>
+
+    <!-- Widget -->
+    <string name="widget_label">Control SmartFan</string>
+    <string name="widget_fan_spd">Vent %1$d</string>
+    <string name="widget_fan_off">Vent OFF</string>
+    <string name="widget_light_on">Luz %1$d%%</string>
+    <string name="widget_light_off">Luz OFF</string>
+    <string name="widget_btn_fan_on">Vent ON</string>
+    <string name="widget_btn_fan_off">Vent OFF</string>
+    <string name="widget_btn_light_on">Luz ON</string>
+    <string name="widget_btn_light_off">Luz OFF</string>
+    <string name="widget_btn_spd_down">-1</string>
+    <string name="widget_btn_spd_up">+1</string>
+    <string name="widget_btn_all_off">Todo OFF</string>
+</resources>

@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screenRemote"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="28dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- BLE Readiness Warning Card -->
+        <LinearLayout
+            android:id="@+id/cardBleWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvBleWarning"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ble_warning_bt_off"
+                android:textColor="@color/sf_amber"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnFixBle"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/ble_warning_action"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Hero Section: Pair/Unpair Left | Animated Fan Center | Master OFF/Aux Right -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp">
+
+            <!-- Left Controls: Pair & Unpair -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/btnPair"
+                        android:layout_width="66dp"
+                        android:layout_height="64dp"
+                        android:background="@drawable/bg_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:contentDescription="@string/pair"
+                            android:src="@drawable/ic_pair"
+                            app:tint="@color/sf_accent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pair"
+                            android:textColor="@color/sf_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnPairHelp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="2dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/cd_pair_help"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_help"
+                        app:tint="@color/sf_text_secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnUnpair"
+                    android:layout_width="66dp"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/unpair"
+                        android:src="@drawable/ic_power"
+                        app:tint="@color/sf_danger" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/unpair"
+                        android:textColor="@color/sf_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Center: Animated Fan + Persisted State Pill -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivFanHero"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:contentDescription="@string/cd_fan_graphic"
+                    android:src="@drawable/ic_fan_blades"
+                    app:tint="@color/sf_fan_blade_off" />
+
+                <TextView
+                    android:id="@+id/tvHeroStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_pill"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/hero_state_off"
+                    android:textColor="@color/sf_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Right Controls: Master OFF & Optional Aux Light -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/btnMasterOff"
+                    android:layout_width="66dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/master_off"
+                        android:src="@drawable/ic_power"
+                        app:tint="@color/sf_danger" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/master_off"
+                        android:textColor="@color/sf_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnHeroAux"
+                    android:layout_width="66dp"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ivHeroAux"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/aux_light"
+                        android:src="@drawable/ic_light"
+                        app:tint="@color/sf_text_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/aux_light"
+                        android:textColor="@color/sf_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- FAN CARD -->
+        <LinearLayout
+            android:id="@+id/cardFan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header + ON/OFF -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"
+                    android:background="@color/sf_accent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/section_fan"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <Button
+                        android:id="@+id/btnFanOn"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="68dp"
+                        android:layout_height="32dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="@string/btn_on"
+                        android:textColor="@color/sf_accent"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnFanOff"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="68dp"
+                        android:layout_height="32dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="@string/btn_off"
+                        android:textColor="@color/sf_danger"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Speed Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_speed"
+                    android:textColor="@color/sf_text_secondary"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btnSpeedDown"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="38dp"
+                    android:layout_height="36dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    android:text="@string/speed_down"
+                    android:textSize="15sp" />
+
+                <SeekBar
+                    android:id="@+id/seekSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="5"
+                    android:progress="2"
+                    android:progressTint="@color/sf_accent"
+                    android:thumbTint="@color/sf_accent" />
+
+                <Button
+                    android:id="@+id/btnSpeedUp"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="38dp"
+                    android:layout_height="36dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    android:text="@string/speed_up"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvSpeedVal"
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/speed_up"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Modes Row (Shake [opt], Reversal [opt], Normal, Natural, Sleeping) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnModeShake"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="@string/mode_shake"
+                    android:textSize="11sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnModeReversal"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="@string/mode_reversal"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnModeNormal"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="@string/mode_normal"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnModeNatural"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="@string/mode_natural"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnModeSleeping"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="4dp"
+                    android:text="@string/mode_sleeping"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Timer Row -->
+            <LinearLayout
+                android:id="@+id/rowFanTimer"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_pill"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@string/label_timer"
+                    android:src="@drawable/ic_timer"
+                    app:tint="@color/sf_text_secondary" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/label_timer"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvTimerVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/timer_off"
+                    android:textColor="@color/sf_accent"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- LIGHT CARD -->
+        <LinearLayout
+            android:id="@+id/cardLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header + ON/OFF -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"
+                    android:background="@color/sf_amber" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/section_light"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <Button
+                        android:id="@+id/btnLightOn"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="68dp"
+                        android:layout_height="32dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="@string/btn_on"
+                        android:textColor="@color/sf_accent"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnLightOff"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="68dp"
+                        android:layout_height="32dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="@string/btn_off"
+                        android:textColor="@color/sf_danger"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Color Temperature Slider -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_ct"
+                    android:textColor="@color/sf_text_secondary"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekColorTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressTint="@color/sf_amber"
+                    android:thumbTint="@color/sf_amber" />
+
+                <TextView
+                    android:id="@+id/tvCtVal"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/preset_white"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Y / N / W / Night Strip -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pill"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <Button
+                    android:id="@+id/btnPresetYellow"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/preset_yellow"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnPresetNeutral"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/preset_neutral"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnPresetWhite"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/preset_white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnPresetNight"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1.2"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/preset_night"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Brightness Slider -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_brightness"
+                    android:textColor="@color/sf_text_secondary"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBrightness"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="90"
+                    android:progress="90"
+                    android:progressTint="@color/sf_accent"
+                    android:thumbTint="@color/sf_accent" />
+
+                <TextView
+                    android:id="@+id/tvBrightnessVal"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/btn_on"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Light-Only Timer Slider (for light-1 devices) -->
+            <LinearLayout
+                android:id="@+id/rowLightTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_timer"
+                    android:textColor="@color/sf_text_secondary"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekLightTimer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="60"
+                    android:progress="0"
+                    android:progressTint="@color/sf_accent"
+                    android:thumbTint="@color/sf_accent" />
+
+                <TextView
+                    android:id="@+id/tvLightTimerVal"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/timer_off"
+                    android:textColor="@color/sf_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- RGB Entry Card (visible when showRgb enabled) -->
+        <LinearLayout
+            android:id="@+id/cardRgbEntry"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@string/section_rgb"
+                android:src="@drawable/ic_rgb"
+                app:tint="@color/sf_accent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="@string/section_rgb"
+                android:textColor="@color/sf_text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rgb_open_hint"
+                android:textColor="@color/sf_text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
